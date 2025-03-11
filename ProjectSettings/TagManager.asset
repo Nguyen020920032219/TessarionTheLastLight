@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Weapon
+  - Arrow
   layers:
   - Default
   - TransparentFX
@@ -49,6 +51,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3595709115
+    locked: 0
+  - name: Arrow
+    uniqueID: 1775309111
     locked: 0
   - name: Player
     uniqueID: 3229950679
