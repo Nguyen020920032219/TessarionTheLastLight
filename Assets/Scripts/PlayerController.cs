@@ -1,9 +1,10 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 15f;
+    [SerializeField] public int hearth = 5;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
 
@@ -37,6 +38,10 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.G))
         {
             weaponManager.StopAttack();
+        }
+        if(hearth <= 0)
+        {
+            Dead();
         }
     }
 
@@ -73,5 +78,11 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isJumping", isJumping);
+    }
+
+    //Load again scence
+    private void Dead()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
