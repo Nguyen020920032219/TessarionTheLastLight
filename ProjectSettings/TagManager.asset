@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Weapon
   - Arrow
+  - Boss
+  - Skill
   layers:
   - Default
   - TransparentFX
@@ -60,6 +62,15 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 694862069
+    locked: 0
+  - name: SubBoss
+    uniqueID: 1709552777
+    locked: 0
+  - name: Skill
+    uniqueID: 885400757
+    locked: 0
+  - name: MainBoss
+    uniqueID: 2738841621
     locked: 0
   m_RenderingLayers:
   - Default
