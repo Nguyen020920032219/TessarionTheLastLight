@@ -8,6 +8,9 @@ TagManager:
   - Arrow
   - Boss
   - Skill
+  - Enemy
+  - Ground
+  - OracleStone
   layers:
   - Default
   - TransparentFX
@@ -54,23 +57,26 @@ TagManager:
   - name: Ground
     uniqueID: 3595709115
     locked: 0
-  - name: Arrow
-    uniqueID: 1775309111
+  - name: Enemy
+    uniqueID: 2786756053
     locked: 0
   - name: Player
     uniqueID: 3229950679
     locked: 0
-  - name: Weapon
-    uniqueID: 694862069
-    locked: 0
-  - name: SubBoss
-    uniqueID: 1709552777
-    locked: 0
   - name: Skill
     uniqueID: 885400757
     locked: 0
-  - name: MainBoss
-    uniqueID: 2738841621
+  - name: Arrow
+    uniqueID: 1775309111
+    locked: 0
+  - name: Weapon
+    uniqueID: 694862069
+    locked: 0
+  - name: Item
+    uniqueID: 4004517393
+    locked: 0
+  - name: Ui
+    uniqueID: 3254817669
     locked: 0
   m_RenderingLayers:
   - Default
