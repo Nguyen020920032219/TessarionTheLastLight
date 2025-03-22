@@ -7,10 +7,15 @@ TagManager:
   - Weapon
   - Arrow
   - Boss
-  - Skill
   - Enemy
   - Ground
-  - OracleStone
+  - AstralStone
+  - IgnisStone
+  - VitalisStone
+  - AegisStone
+  - GenesisStone
+  - BowSkill
+  - SwordSkill
   layers:
   - Default
   - TransparentFX

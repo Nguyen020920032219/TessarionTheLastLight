@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private Weapon[] weapons;
+
     private int currentWeaponIndex = 0;
     private Weapon currentWeapon;
 
@@ -36,13 +38,18 @@ public class WeaponManager : MonoBehaviour
     public void StopAttack()
     {
         currentWeapon?.StopAttack();
+    }    
+
+    internal void UsingSkill()
+    {
+        if (currentWeapon.isHavingSkill)
+        {
+            currentWeapon.UsingSkill();
+        }
     }
 
-    public void SetStoneToWeapon(string stoneName)
+    internal Weapon GetCurrentWeapon()
     {
-        if (stoneName == "OracleStone")
-        {
-            currentWeapon.BuffAttackSpeed(2);
-        }
+        return currentWeapon;
     }
 }
