@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 15f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private Collider2D mainCollider;
     [SerializeField] private GameObject gameOverUi;
 
     private Animator animator;
@@ -15,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private WeaponManager weaponManager;
     private PlayerManager playerManager;
-    private bool isGameOver=false;
+    private bool isGameOver = false;
 
     private void Awake()
     {
@@ -32,6 +31,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (isGameOver)
+        {
+            return;
+        }
+
         HandleMovement();
         HandleJump();
         UpdateAnimation();
@@ -48,6 +52,11 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.G))
         {
             weaponManager.StopAttack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            weaponManager.UsingSkill();
         }
     }
 
@@ -78,27 +87,22 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isJumping", isJumping);
     }
 
-    public Collider2D GetMainCollider()
-    {
-        return mainCollider;
-    }
-
     public void Die()
     {
+        isGameOver = true;
         animator.SetBool("isDying", true);
         Invoke(nameof(GameOver), 1.5f);
     }
 
     private void GameOver()
     {
-        isGameOver = true;
         Time.timeScale = 0;
         gameOverUi.SetActive(true);
     }
 
     public void RestartGame()
     {
-        isGameOver=false;
+        isGameOver = false;
         playerManager.ResetHp();
         Time.timeScale = 1;
         SceneManager.LoadScene("Setup");
