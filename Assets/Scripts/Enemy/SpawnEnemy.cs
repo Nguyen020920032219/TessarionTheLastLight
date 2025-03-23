@@ -15,14 +15,20 @@ public class EnemySpawner : MonoBehaviour
             if (distance <= spawnRadius)
             {
                 SpawnEnemy();
-                hasSpawned = true; 
+                hasSpawned = true;
+                Invoke(nameof(SetSpawnAgain), 2f);
             }
         }
     }
 
+    private void SetSpawnAgain()
+    {
+        hasSpawned=false;
+    }
+
     private void SpawnEnemy()
     {
-        Vector3 spawnPosition = transform.position + new Vector3(0, 1, 0);
+        Vector3 spawnPosition = transform.position;
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 }
