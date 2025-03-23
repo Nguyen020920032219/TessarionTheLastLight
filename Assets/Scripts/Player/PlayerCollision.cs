@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private GameObject player;
     private PlayerManager playerManager;
-    private PlayerController playerController;
     private WeaponManager weaponManager;
 
     private void Start()
@@ -13,33 +12,41 @@ public class PlayerCollision : MonoBehaviour
         if (player != null)
         {
             playerManager = player.GetComponent<PlayerManager>();
-            playerController = player.GetComponent<PlayerController>();
             weaponManager = player.GetComponent<WeaponManager>();
         }
     }
-
-    private bool isEnterOraccleStone = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("AAAAAAAAAA");
-            playerManager.TakeDamage(5);
+                Debug.Log("AAAAAAAAAA");
+                playerManager.TakeDamage(5);
         }
-        if (collision.CompareTag("OracleStone"))
+        if (collision.CompareTag("AstralStone"))
         {
-            if (!isEnterOraccleStone)
-            {
-                Debug.Log("Oracle Stone!!!!");
-                weaponManager.SetStoneToWeapon("OracleStone");
-                isEnterOraccleStone = true;
-            }
-            else
-            {
-                return;
-            }
+            Debug.Log("Astral Stone!!!!");
+            weaponManager.GetCurrentWeapon().AddStone("Astral");
+            weaponManager.GetCurrentWeapon().UpdateWeaponStats();
+        }
+        if (collision.CompareTag("IgnisStone"))
+        {
+            Debug.Log("Ignis Stone!!!!");
+            weaponManager.GetCurrentWeapon().AddStone("Ignis");
+            weaponManager.GetCurrentWeapon().UpdateWeaponStats();
+        }
+        if (collision.CompareTag("VitalisStone"))
+        {
+            Debug.Log("Vitalis Stone!!!!");
+            weaponManager.GetCurrentWeapon().AddStone("Vitalis");
+            weaponManager.GetCurrentWeapon().UpdateWeaponStats();
+        }
+        if (collision.CompareTag("AegisStone"))
+        {
+            Debug.Log("Aegis Stone!!!!");
+            weaponManager.GetCurrentWeapon().AddStone("Aegis");
+            weaponManager.GetCurrentWeapon().UpdateWeaponStats();
         }
     }
 }

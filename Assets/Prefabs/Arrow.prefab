@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5887610355326482727}
   - component: {fileID: 8609665907797824841}
   - component: {fileID: 2012564321714000924}
+  - component: {fileID: 1354415370761147349}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Arrow
@@ -116,7 +117,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!114 &8609665907797824841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowCollider: {fileID: 2012564321714000924}
-  damage: 15
 --- !u!60 &2012564321714000924
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -203,3 +203,25 @@ PolygonCollider2D:
       - {x: -8.262185, y: -0.20607585}
       - {x: -8.175686, y: 0.10061538}
   m_UseDelaunayMesh: 0
+--- !u!95 &1354415370761147349
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331614068522807948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a08dfe6da531924bbab2b4cfa9512ec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
