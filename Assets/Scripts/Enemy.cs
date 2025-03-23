@@ -5,15 +5,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float maxHP = 50f;
     [SerializeField] private float moveSpeed = 1f;
     private GameObject player;
-    private float currentHP;
+    [SerializeField]private float currentHP;
     private Animator animator;
     private bool isDead = false;
 
+    public HealthBar healthBar;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
         currentHP = maxHP;
+        healthBar.SetMaxHealth(maxHP);
     }
 
     private void Update()
@@ -31,7 +33,8 @@ public class Enemy : MonoBehaviour
     {
         if (isDead) return;
         currentHP -= damage;
-        if (currentHP <= 0)
+        healthBar.SetHealth(currentHP);
+        if(currentHP <= 0)
         {
             Die();
         }
