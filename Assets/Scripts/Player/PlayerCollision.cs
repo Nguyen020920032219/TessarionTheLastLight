@@ -27,26 +27,22 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("AstralStone"))
         {
             Debug.Log("Astral Stone!!!!");
-            weaponManager.GetCurrentWeapon().AddStone("Astral");
-            weaponManager.GetCurrentWeapon().UpdateWeaponStats();
+            weaponManager.SetStoneToWeapon("Astral");
         }
         if (collision.CompareTag("IgnisStone"))
         {
             Debug.Log("Ignis Stone!!!!");
-            weaponManager.GetCurrentWeapon().AddStone("Ignis");
-            weaponManager.GetCurrentWeapon().UpdateWeaponStats();
+            weaponManager.SetStoneToWeapon("Ignis");
         }
         if (collision.CompareTag("VitalisStone"))
         {
             Debug.Log("Vitalis Stone!!!!");
-            weaponManager.GetCurrentWeapon().AddStone("Vitalis");
-            weaponManager.GetCurrentWeapon().UpdateWeaponStats();
+            weaponManager.SetStoneToWeapon("Vitalis");
         }
         if (collision.CompareTag("AegisStone"))
         {
             Debug.Log("Aegis Stone!!!!");
-            weaponManager.GetCurrentWeapon().AddStone("Aegis");
-            weaponManager.GetCurrentWeapon().UpdateWeaponStats();
+            weaponManager.SetStoneToWeapon("Aegis");
         }
     }
 }

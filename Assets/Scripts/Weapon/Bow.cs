@@ -15,7 +15,7 @@ public class Bow : Weapon
             Invoke("ResetShooting", 0.2f);
 
             GameObject arrow = arrowPool.GetObject();
-            arrow.GetComponent<Arrow>().damage = currentDamage;
+            arrow.GetComponent<Arrow>().damage = GetDamage();
             arrow.transform.position = firePoint.position;
             Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
 
@@ -23,7 +23,6 @@ public class Bow : Weapon
             arrow.transform.localScale = new Vector3(direction * 0.02f, 0.01f, 0.01f);
             arrowRb.linearVelocity = new Vector2(direction * arrowSpeed, 0);
 
-            //Destroy(arrow, 10f);
             ResetAttackCooldown();
         }
     }

@@ -4,21 +4,23 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private float hp = 20f;
-    [SerializeField] private float mp = 20f;
-    [SerializeField] private float speed = 20f;
-    [SerializeField] private float defend = 0f;
-    [SerializeField] private float strength = 20f;
+    [SerializeField] private float hp = 50f;
+    [SerializeField] private float mp = 50f;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float defend = 5f;
+    [SerializeField] private float strength = 5f;
     [SerializeField] private Image hpBar;
     [SerializeField] private Image mpBar;
 
     private GameObject player;
     private PlayerController playerController;
+    private float maxHp;
+    private float maxMp;
     private float currentHp;
     private float currentMp;
     private float currentSpeed;
-    public float currentDefend;
-    private float currentStrength;
+    private float currentDefend;
+    public float currentStrength;
 
     private void Start()
     {
@@ -28,7 +30,9 @@ public class PlayerManager : MonoBehaviour
             playerController = player.GetComponent<PlayerController>();
 
             currentHp = hp;
+            maxHp = hp;
             currentMp = mp;
+            maxMp = mp;
             currentSpeed = speed;
             currentDefend = defend;
             currentStrength = strength;
@@ -53,7 +57,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (hpBar != null)
         {
-            hpBar.fillAmount = currentHp / hp;
+            hpBar.fillAmount = currentHp / maxHp;
         }
     }
 
@@ -61,14 +65,19 @@ public class PlayerManager : MonoBehaviour
     {
         if (mpBar != null)
         {
-            mpBar.fillAmount = currentMp / mp;
+            mpBar.fillAmount = currentMp / maxMp;
         }
     }
 
-    public void ResetHp()
+    public void ResetPlayerStats()
     {
         currentHp = hp;
         currentMp = mp;
+        currentSpeed = speed;
+        currentDefend = defend;
+        currentStrength = strength;
+        maxHp=hp;
+        maxMp=mp;
     }
 
     public void ResetDefend()
@@ -79,6 +88,12 @@ public class PlayerManager : MonoBehaviour
     public void AddDefend(float defendPercent)
     {
         currentDefend += defendPercent;
+    }
+
+    public void AddHealth(float healthPercent)
+    {
+        maxHp += maxHp * (healthPercent / 100);
+        UpdateHpBar();
     }
 
     internal bool CanUseSkill(float manaUsing)
@@ -92,9 +107,35 @@ public class PlayerManager : MonoBehaviour
         else
         {
             currentMp -= manaUsing;
-            currentMp=Mathf.Max(currentMp, 0);
+            currentMp = Mathf.Max(currentMp, 0);
             UpdateMpBar();
             return false;
         }
+    }
+
+    internal float GetSpeed()
+    {
+        return currentSpeed;
+    }
+
+    internal void AddSpeed(float percentBuff)
+    {
+        currentSpeed += currentSpeed * (percentBuff / 100);
+    }
+
+    internal void AddStrength(float percentBuff)
+    {
+        currentStrength += percentBuff;
+    }
+
+    internal void AddMana(float percentBuff)
+    {
+        maxMp += maxMp * (percentBuff / 100);
+        UpdateMpBar();
+    }
+
+    internal float GetStrenght()
+    {
+        return currentStrength;
     }
 }

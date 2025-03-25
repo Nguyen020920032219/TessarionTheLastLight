@@ -8,6 +8,9 @@ public class Ghost : Enemy
     [SerializeField] private float damage = 5f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float objScale = 0.5f;
+    [SerializeField] private float distance;
+    [SerializeField] private Vector3 startPos;
+
     void Start()
     {
         InitStat(hp, damage, speed, objScale, hpBar);
@@ -16,7 +19,8 @@ public class Ghost : Enemy
 
     void Update()
     {
-        MoveToPlayer();
+        //MoveToPlayer();
+        MoveFronPosToPos(startPos, distance);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

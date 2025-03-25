@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.IO;
+using UnityEditor.Timeline;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     private float currentHP;
     private bool isDead = false;
     private bool isKnockedBack = false;
+    private bool isMovingRight = true;
 
     private void Awake()
     {
@@ -54,12 +56,46 @@ public class Enemy : MonoBehaviour
 
         if (direction.x > 0) transform.localScale = new Vector3(1f * objectScale, 1f * objectScale, 1f * objectScale);
         else if (direction.x < 0) transform.localScale = new Vector3(-1f * objectScale, 1f * objectScale, 1f * objectScale);
+        animator.SetBool("isMoving", true);
+    }
+
+    protected void MoveFronPosToPos(Vector3 startPosition, float distanceFromStartPosition)
+    {
+        float leftBound = startPosition.x - distanceFromStartPosition;
+        float rightBound = startPosition.x + distanceFromStartPosition;
+        if (isMovingRight)
+        {
+            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+            if (transform.position.x >= rightBound)
+            {
+                isMovingRight = false;
+                Flip();
+            }
+        }
+        else
+        {
+            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+            if (transform.position.x <= leftBound)
+            {
+                isMovingRight = true;
+                Flip();
+            }
+        }
+        animator.SetBool("isMoving", true);
+    }
+
+    private void Flip()
+    {
+        Vector3 scaler = transform.localScale;
+        scaler.x *= -1; 
+        transform.localScale = scaler;
     }
 
     public void TakeDamage(float damage)
     {
         if (isDead) return;
         currentHP -= damage;
+        animator.SetBool("isHurting", true);
         currentHP = Mathf.Max(currentHP, 0);
         StartCoroutine(Knockback());
         UpdateHpBar();
@@ -91,6 +127,7 @@ public class Enemy : MonoBehaviour
 
             rb.linearVelocity = Vector2.zero;
             isKnockedBack = false;
+            animator.SetBool("isHurting", false);
         }
     }
 
