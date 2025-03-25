@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 15f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
@@ -63,7 +62,7 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput * playerManager.GetSpeed(), rb.linearVelocity.y);
         if (moveInput > 0) transform.localScale = new Vector3(1, 1, 1);
         else if (moveInput < 0) transform.localScale = new Vector3(-1, 1, 1);
     }
@@ -103,7 +102,7 @@ public class PlayerController : MonoBehaviour
     public void RestartGame()
     {
         isGameOver = false;
-        playerManager.ResetHp();
+        playerManager.ResetPlayerStats();
         Time.timeScale = 1;
         SceneManager.LoadScene("Setup");
     }

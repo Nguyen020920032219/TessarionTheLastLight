@@ -30,7 +30,7 @@ public abstract class Weapon : MonoBehaviour
 
     public float GetDamage()
     {
-        return currentDamage;
+        return (currentDamage + (currentDamage * (playerManager.GetStrenght() / 100)));
     }
 
     protected bool CanAttack()
@@ -106,14 +106,18 @@ public abstract class Weapon : MonoBehaviour
             case "Ignis":
                 Debug.Log("Damage Buff!!!!!");
                 currentDamage += currentDamage * (percentBuff / 100);
+                playerManager.AddSpeed(percentBuff);
+                playerManager.AddStrength(percentBuff);
                 break;
             case "Vitalis":
                 Debug.Log("Speed Buff!!!!!");
                 currentSpeed += currentSpeed * (percentBuff / 100);
+                playerManager.AddMana(percentBuff);
                 break;
             case "Aegis":
                 Debug.Log("Defend Buff!!!!!");
                 playerManager.AddDefend(percentBuff);
+                playerManager.AddHealth(percentBuff);
                 break;
         }
     }
