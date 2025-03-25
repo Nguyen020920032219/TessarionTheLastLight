@@ -16,6 +16,7 @@ TagManager:
   - GenesisStone
   - BowSkill
   - SwordSkill
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
