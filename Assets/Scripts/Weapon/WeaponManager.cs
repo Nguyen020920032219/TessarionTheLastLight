@@ -48,8 +48,9 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    internal Weapon GetCurrentWeapon()
+    internal void SetStoneToWeapon(string stoneName)
     {
-        return currentWeapon;
+        currentWeapon.AddStone(stoneName);
+        currentWeapon.UpdateWeaponStats();
     }
 }
