@@ -17,4 +17,17 @@ public class ReaperMan1 : Enemy
     {
         MoveToPlayer();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("SwordSkill"))
+        {
+            TakeDamage(100);
+        }
+        if (collision.CompareTag("BowSkill"))
+        {
+            TakeDamage(100);
+        }
+    }
+
 }
