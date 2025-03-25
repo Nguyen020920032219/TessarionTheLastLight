@@ -23,7 +23,7 @@ public class Bow : Weapon
             arrow.transform.localScale = new Vector3(direction * 0.02f, 0.01f, 0.01f);
             arrowRb.linearVelocity = new Vector2(direction * arrowSpeed, 0);
 
-            Destroy(arrow, 10f);
+            //Destroy(arrow, 10f);
             ResetAttackCooldown();
         }
     }
