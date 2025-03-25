@@ -1,53 +1,36 @@
 using System.Collections;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ReaperMan1 : Enemy
+public class ReaperMan3 : Enemy
 {
     [SerializeField] private Image hpBar;
     [SerializeField] private float hp = 50f;
     [SerializeField] private float damage = 5f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float objScale = 0.03f;
-    [SerializeField] private float attackRange;
-
+    [SerializeField] private float canCallReaperMan1Range;
+    [SerializeField] private ReaperMan1 reaperMan1Prefab;
 
     private GameObject player;
-    private PolygonCollider2D _attackCollider;
     private Animator _animator;
-    private bool canAttack = true;
+    private bool canCallReaperMan1 = true;
 
     void Start()
     {
         InitStat(hp, damage, speed, objScale, hpBar);
         UpdateHpBar();
         player = GameObject.FindGameObjectWithTag("Player");
-
-        GameObject attackObject = GameObject.FindGameObjectWithTag("ReaperAttack");
-        if (attackObject != null)
-        {
-            _attackCollider = attackObject.GetComponent<PolygonCollider2D>();
-            _attackCollider.enabled = false; // Ensure it's disabled initially
-        }
-        //_attackCollider = GetComponent<Collider2D>();
         _animator = GetComponent<Animator>();
-        //_attackCollider.enabled = true;
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) > attackRange)
-        {
-            base.MoveToPlayer();
-        }
-
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distanceToPlayer <= attackRange && canAttack)
+        if (distanceToPlayer <= canCallReaperMan1Range && canCallReaperMan1)
         {
-            AttackPlayer();
-
+            CallReaperMan1();
         }
     }
 
@@ -63,21 +46,22 @@ public class ReaperMan1 : Enemy
         }
     }
 
-    private void AttackPlayer()
+    private void CallReaperMan1()
     {
-        canAttack = false;
+        canCallReaperMan1 = false;
         _animator.SetBool("isAttacking", true);
-        _attackCollider.enabled = true;
-        player.GetComponent<PlayerManager>().TakeDamage(5);
+        // Spawn new enemy near player
+        Vector3 spawnPosition = player.transform.position + new Vector3(5f, 2f, 0);
+        ReaperMan1 newReaper = Instantiate(reaperMan1Prefab, spawnPosition, Quaternion.identity);
+        base.TakeDamage(10);
         StartCoroutine(DisableAttackAfterCooldown());
     }
 
     private IEnumerator DisableAttackAfterCooldown()
     {
-        yield return new WaitForSeconds(1.5f);
-        _attackCollider.enabled = false;
+        yield return new WaitForSeconds(10f);
         _animator.SetBool("isAttacking", false);
-        canAttack = true;
-        yield return new WaitForSeconds(1.5f);
+        canCallReaperMan1 = true;
+        yield return new WaitForSeconds(10f);
     }
 }
