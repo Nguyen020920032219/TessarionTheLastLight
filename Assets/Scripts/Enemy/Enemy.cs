@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         hpBar = healthBar;
         UpdateHpBar();
     }
-
+    
     public float GetDamage()
     {
         return damge;
@@ -130,7 +130,10 @@ public class Enemy : MonoBehaviour
             animator.SetBool("isHurting", false);
         }
     }
-
+    public bool IsDied()
+    {
+        return isDead;
+    }
     private void Die()
     {
         isDead = true;

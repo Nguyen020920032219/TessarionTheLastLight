@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 7884767214762383683}
   - component: {fileID: 4900851786274239522}
   - component: {fileID: 6216455464521815557}
+  - component: {fileID: 2490051150476626330}
+  - component: {fileID: -8148161744435723306}
+  - component: {fileID: 1751720348025069195}
   m_Layer: 0
   m_Name: DemonSkill2
-  m_TagString: Untagged
+  m_TagString: BossSkill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1040149627
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 6573412787571555086, guid: 3e68b9546ac64e243a3b918a73909cd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -147,3 +150,64 @@ PolygonCollider2D:
       - {x: 0.03540784, y: 0.07155583}
       - {x: 0.022069529, y: 0.16592142}
   m_UseDelaunayMesh: 0
+--- !u!50 &2490051150476626330
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538178141937761951}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-8148161744435723306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538178141937761951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8adad4af86c81478489ecfae68fe98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1751720348025069195
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538178141937761951}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86629c2312f4fbf43a6f699f16232727, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

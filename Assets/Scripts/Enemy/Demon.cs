@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class Demon : Enemy
@@ -9,12 +10,11 @@ public class Demon : Enemy
     [SerializeField] private float damage = 5f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float objScale = 1f;
-
-    [SerializeField] private GameObject skill1Prefabs;
-    [SerializeField] private GameObject skill2Prefabs;
+    [SerializeField] private GameObject[] skillPrefabs;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform[] spawnPoints2;
     [SerializeField] private float speedSkill = 5f;
+    [SerializeField] private GameObject foreground;
 
     private Animator animator;
     private Transform playerTransform;
@@ -30,43 +30,54 @@ public class Demon : Enemy
         {
             playerTransform = player.transform;
         }
-
+        foreground.gameObject.SetActive(false);
         StartCoroutine(RandomSkill());
     }
-    
+
+    private void Update()
+    {
+        Died();
+    }
+
     private IEnumerator RandomSkill()
     {
         while (true)
         {
             yield return new WaitForSeconds(4);
-            int indexSkill = Random.Range(0, spawnPoints2.Length - 1);
-            
+            int indexSkill = Random.Range(0, skillPrefabs.Length);
+            Debug.Log("Random Skill Index: " + indexSkill);
+
             if (indexSkill == 0)
             {
-                animator.SetTrigger("Attack");
-
-            }else if (indexSkill == 1)
+                Debug.Log("Setting Attack Trigger");
+                CastSkill1();
+            }
+            else if (indexSkill == 1)
             {
-                animator.SetTrigger("Attack_1");
+                Debug.Log("Setting Attack_1 Trigger");
+                CastSkill2();
+
             }
         }
     }
 
     public void CastSkill1()
     {
-        if(playerTransform != null)
+        if (playerTransform != null)
         {
+            animator.SetInteger("DemonSkill1", 0);
             Vector2 direction = (playerTransform.position - spawnPoint.position).normalized;
-            GameObject skill = Instantiate(skill1Prefabs, spawnPoint.position, Quaternion.identity);
+            GameObject skill = Instantiate(skillPrefabs[0], spawnPoint.position, Quaternion.identity);
             skill.GetComponent<Rigidbody2D>().linearVelocity = direction * speedSkill;
         }
     }
 
     public void CastSkill2()
     {
+        animator.SetInteger("DemonSkill2", 1);
         foreach (Transform point in spawnPoints2)
         {
-            Instantiate(skill2Prefabs, point.position, Quaternion.identity);
+            Instantiate(skillPrefabs[1], point.position, Quaternion.identity);
         }
     }
 
@@ -79,6 +90,14 @@ public class Demon : Enemy
         if (collision.CompareTag("BowSkill"))
         {
             TakeDamage(100);
+        }
+    }
+    private void Died()
+    {
+        if (!IsDied()) return;
+        if (foreground != null)
+        {
+            foreground.gameObject.SetActive(true);
         }
     }
 }

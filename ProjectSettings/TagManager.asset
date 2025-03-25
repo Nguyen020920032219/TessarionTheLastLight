@@ -17,6 +17,8 @@ TagManager:
   - BowSkill
   - SwordSkill
   - EnemyAttack
+  - GateWay
+  - BossSkill
   layers:
   - Default
   - TransparentFX
