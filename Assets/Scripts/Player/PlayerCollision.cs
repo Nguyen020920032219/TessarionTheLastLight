@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -19,10 +20,14 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("EnemyAttack"))
+        if (collision.CompareTag("Enemy"))
         {
                 Debug.Log("AAAAAAAAAA");
                 playerManager.TakeDamage(5);
+        }
+        if (collision.CompareTag("BossSkill"))
+        {
+            playerManager.TakeDamage(25);
         }
         if (collision.CompareTag("AstralStone"))
         {
@@ -43,6 +48,10 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Aegis Stone!!!!");
             weaponManager.SetStoneToWeapon("Aegis");
+        }
+        if (collision.CompareTag("GateWay"))
+        {
+            SceneManager.LoadScene("Scence5_1");
         }
     }
 }
