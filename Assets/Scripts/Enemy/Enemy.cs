@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("isMoving", true);
     }
 
-    protected void MoveFronPosToPos(Vector3 startPosition, float distanceFromStartPosition)
+    protected void MoveFromPosToPos(Vector3 startPosition, float distanceFromStartPosition)
     {
         float leftBound = startPosition.x - distanceFromStartPosition;
         float rightBound = startPosition.x + distanceFromStartPosition;
