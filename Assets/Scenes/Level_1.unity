@@ -356,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 128460769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.18, y: -0.15, z: -10}
+  m_LocalPosition: {x: -5.18, y: -1.18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24988,7 +24988,7 @@ Transform:
   m_GameObject: {fileID: 1046877262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.18, y: -0.15, z: -10}
+  m_LocalPosition: {x: -5.18, y: -1.18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72990,10 +72990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 15
   baseSpeed: 1
-  currentDamage: 0
-  isHavingSkill: 0
   firePoint: {fileID: 815891297}
-  arrowSpeed: 5
   arrowPool: {fileID: 1659809409}
   bowSkill: {fileID: 4780112853900809479, guid: a3ddd9d9c0ad197488482c3e4e80ac38, type: 3}
 --- !u!212 &1659809408
@@ -74678,7 +74675,7 @@ Transform:
   m_GameObject: {fileID: 1955294481}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.18, y: -0.15, z: 0}
+  m_LocalPosition: {x: -5.18, y: -1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -74931,8 +74928,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 15
   baseSpeed: 1
-  currentDamage: 0
-  isHavingSkill: 0
   swordCollider: {fileID: 2125352537}
   firePoint: {fileID: 567620749}
   swordSkill: {fileID: 4245092051039180567, guid: 87d2ae5b182d6e14497d9f22fc1d4a3d, type: 3}

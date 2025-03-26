@@ -20,7 +20,7 @@ public class Ghost : Enemy
     void Update()
     {
         //MoveToPlayer();
-        MoveFronPosToPos(startPos, distance);
+        MoveFromPosToPos(startPos, distance);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

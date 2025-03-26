@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Sword : Weapon
 {
-    [SerializeField] private Collider2D swordCollider; 
+    [SerializeField] private Collider2D swordCollider;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject swordSkill;
 
@@ -10,13 +10,16 @@ public class Sword : Weapon
     {
         base.Awake();
         if (swordCollider != null)
+        {
             swordCollider.enabled = false;
+        }
+        animator.SetLayerWeight(1, 0);
     }
 
     public override void Attack()
     {
         if (!CanAttack()) return;
-
+        animator.SetLayerWeight(1, 1);
         animator.SetBool("isSwordAttacking", true);
         swordCollider.enabled = true;
         ResetAttackCooldown();
@@ -26,6 +29,7 @@ public class Sword : Weapon
     public override void StopAttack()
     {
         animator.SetBool("isSwordAttacking", false);
+        animator.SetLayerWeight(1, 0);
         DisableCollider();
     }
 
