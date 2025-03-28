@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float strength = 5f;
     [SerializeField] private Image hpBar;
     [SerializeField] private Image mpBar;
+    [SerializeField] private float manaRegenRate = 1f;
 
     private GameObject player;
     private PlayerController playerController;
@@ -38,6 +40,7 @@ public class PlayerManager : MonoBehaviour
             currentStrength = strength;
             UpdateHpBar();
             UpdateMpBar();
+            StartCoroutine(RegenerateMana());
         }
     }
 
@@ -76,8 +79,8 @@ public class PlayerManager : MonoBehaviour
         currentSpeed = speed;
         currentDefend = defend;
         currentStrength = strength;
-        maxHp=hp;
-        maxMp=mp;
+        maxHp = hp;
+        maxMp = mp;
     }
 
     public void ResetDefend()
@@ -106,9 +109,6 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            currentMp -= manaUsing;
-            currentMp = Mathf.Max(currentMp, 0);
-            UpdateMpBar();
             return false;
         }
     }
@@ -137,5 +137,28 @@ public class PlayerManager : MonoBehaviour
     internal float GetStrenght()
     {
         return currentStrength;
+    }
+
+    internal float GetCurrentMana()
+    {
+        return currentMp;
+    }
+
+    internal float GetMaxMana()
+    {
+        return maxMp;
+    }
+
+    private IEnumerator RegenerateMana()
+    {
+        while (true)
+        {
+            if (currentMp < maxMp)
+            {
+                currentMp += manaRegenRate;
+                UpdateMpBar();
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

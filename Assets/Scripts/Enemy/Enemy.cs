@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.IO;
 using UnityEditor.Timeline;
+using UnityEditor.Rendering;
 
 public class Enemy : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class Enemy : MonoBehaviour
         hpBar = healthBar;
         UpdateHpBar();
     }
-    
+
     public float GetDamage()
     {
         return damge;
@@ -73,31 +74,38 @@ public class Enemy : MonoBehaviour
     {
         float leftBound = startPosition.x - distanceFromStartPosition;
         float rightBound = startPosition.x + distanceFromStartPosition;
-        if (isMovingRight)
+        if (!isDead)
         {
-            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-            if (transform.position.x >= rightBound)
+            if (isMovingRight)
             {
-                isMovingRight = false;
-                Flip();
+                transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+                if (transform.position.x >= rightBound)
+                {
+                    isMovingRight = false;
+                    Flip();
+                }
             }
+            else
+            {
+                transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+                if (transform.position.x <= leftBound)
+                {
+                    isMovingRight = true;
+                    Flip();
+                }
+            }
+            animator.SetBool("isMoving", true);
         }
         else
         {
-            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
-            if (transform.position.x <= leftBound)
-            {
-                isMovingRight = true;
-                Flip();
-            }
+            animator.SetBool("isMoving", false);
         }
-        animator.SetBool("isMoving", true);
     }
 
     private void Flip()
     {
         Vector3 scaler = transform.localScale;
-        scaler.x *= -1; 
+        scaler.x *= -1;
         transform.localScale = scaler;
     }
 

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     private GameObject player;
     private PlayerManager playerManager;
     private WeaponManager weaponManager;
+    [SerializeField] private GameObject menuWin;
 
     private void Start()
     {
@@ -19,12 +20,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.CompareTag("Enemy"))
-        {
-                Debug.Log("AAAAAAAAAA");
-                playerManager.TakeDamage(5);
-        }
         if (collision.CompareTag("BossSkill"))
         {
             playerManager.TakeDamage(25);
@@ -51,7 +46,12 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("GateWay"))
         {
-            SceneManager.LoadScene("Scence5_1");
+            SceneManager.LoadScene("Scence_5_2");
+        }
+        if (collision.CompareTag("GenesisStone"))
+        {
+            Time.timeScale = 0;
+            menuWin.SetActive(true);
         }
     }
 }

@@ -5,6 +5,6 @@ public class LoadScene : MonoBehaviour
 {
     void Start()
     {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene(2);
     }
 }

@@ -20,6 +20,7 @@ public class Ghost : Enemy
 
     void Start()
     {
+        startPos = transform.position;
         InitStat(hp, damage, speed, objScale, hpBar);
         UpdateHpBar();
         player = GameObject.FindGameObjectWithTag("Player");

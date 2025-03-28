@@ -4,7 +4,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     [SerializeField] private Collider2D arrowCollider;
-    [SerializeField] public float damage { get; set; }
+    public float damage { get; set; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +16,10 @@ public class Arrow : MonoBehaviour
                 enemy.TakeDamage(damage);
                 Debug.Log("enemy take: " + damage + " damage");
             }
+            FindAnyObjectByType<ObjectPool>().ReturnObject(gameObject);
+        }
+        if (collision.CompareTag("Ground"))
+        {
             FindAnyObjectByType<ObjectPool>().ReturnObject(gameObject);
         }
     }
