@@ -10,7 +10,7 @@ public class Ghost : Enemy
     [SerializeField] private float speed = 1f;
     [SerializeField] private float objScale = 0.5f;
     [SerializeField] private float distance;
-    [SerializeField] private Vector3 startPos;
+    private Vector3 startPos;
     [SerializeField] private float immortalTime = 5f;
     [SerializeField] private float canGetDamageTime = 5f;
 
