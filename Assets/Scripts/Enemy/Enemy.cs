@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEditor.Timeline;
 
-public class Enemy : MonoBehaviour
+public class   : MonoBehaviour
 {
     private float health;
     private float damge;
