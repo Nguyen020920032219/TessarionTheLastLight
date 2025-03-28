@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     private GameObject player;
     private PlayerManager playerManager;
     private WeaponManager weaponManager;
+    [SerializeField] private GameObject menuWin;
 
     private void Start()
     {
@@ -52,6 +53,11 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("GateWay"))
         {
             SceneManager.LoadScene("Scence5_1");
+        }
+        if (collision.CompareTag("GenesisStone"))
+        {
+            Time.timeScale = 0;
+            menuWin.SetActive(true);
         }
     }
 }
