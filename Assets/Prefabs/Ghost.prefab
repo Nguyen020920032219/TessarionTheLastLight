@@ -435,7 +435,6 @@ MonoBehaviour:
   speed: 1
   objScale: 0.5
   distance: 0
-  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &5154853404801204939
 GameObject:
   m_ObjectHideFlags: 0
