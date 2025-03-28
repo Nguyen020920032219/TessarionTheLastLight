@@ -5,7 +5,7 @@ using System.IO;
 using UnityEditor.Timeline;
 using UnityEditor.Rendering;
 
-public class   : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     private float health;
     private float damge;
@@ -42,7 +42,7 @@ public class   : MonoBehaviour
         hpBar = healthBar;
         UpdateHpBar();
     }
-    
+
     public float GetDamage()
     {
         return damge;
@@ -100,7 +100,7 @@ public class   : MonoBehaviour
     private void Flip()
     {
         Vector3 scaler = transform.localScale;
-        scaler.x *= -1; 
+        scaler.x *= -1;
         transform.localScale = scaler;
     }
 

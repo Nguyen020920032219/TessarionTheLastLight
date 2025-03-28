@@ -5,6 +5,8 @@ public class ChangeScene : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("Level_2");
+        if(collision.CompareTag("Enemy")) return;
+        if(collision.CompareTag("Arrow")) return;
+        SceneManager.LoadScene(3);
     }
 }
