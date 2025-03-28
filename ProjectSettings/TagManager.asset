@@ -20,6 +20,7 @@ TagManager:
   - GateWay
   - BossSkill
   - ReaperAttack
+  - SlimeAttack
   layers:
   - Default
   - TransparentFX

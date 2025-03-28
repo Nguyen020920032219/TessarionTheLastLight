@@ -9,10 +9,11 @@ public class Ghost : Enemy
     [SerializeField] private float speed = 1f;
     [SerializeField] private float objScale = 0.5f;
     [SerializeField] private float distance;
-    [SerializeField] private Vector3 startPos;
+    private Vector3 startPos;
 
     void Start()
     {
+        startPos = transform.position;
         InitStat(hp, damage, speed, objScale, hpBar);
         UpdateHpBar();
     }
