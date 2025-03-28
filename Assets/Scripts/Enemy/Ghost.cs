@@ -10,6 +10,7 @@ public class Ghost : Enemy
     [SerializeField] private float speed = 1f;
     [SerializeField] private float objScale = 0.5f;
     [SerializeField] private float distance;
+    [SerializeField] private float distanceToStartChasingPlayer;
     private Vector3 startPos;
     [SerializeField] private float immortalTime = 5f;
     [SerializeField] private float canGetDamageTime = 5f;
@@ -17,6 +18,7 @@ public class Ghost : Enemy
     private GameObject player;
     private Animator _animator;
     private bool isImmortal = false;
+    private bool isChasingPlayer = false;
 
     void Start()
     {
@@ -32,8 +34,20 @@ public class Ghost : Enemy
 
     void Update()
     {
-        //MoveToPlayer();
-        MoveFromPosToPos(startPos, distance);
+
+        if (Vector3.Distance(transform.position, player.transform.position) <= distanceToStartChasingPlayer)
+        {
+            isChasingPlayer = true;
+        }
+
+        if (isChasingPlayer)
+        {
+            MoveToPlayer();
+        }
+        else
+        {
+            MoveFromPosToPos(startPos, distance);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,6 +59,10 @@ public class Ghost : Enemy
         if (collision.CompareTag("BowSkill"))
         {
             TakeDamage(100);
+        }
+        if (collision.CompareTag("Player"))
+        {
+            player.GetComponent<PlayerManager>().TakeDamage(damage);
         }
     }
 
@@ -61,12 +79,13 @@ public class Ghost : Enemy
             actualHP = GetCurrentHP(); // Save actual HP
             SetCurrentHP(virtualHP);
             base.UpdateHpBar();
-
+            base.SetMoveSpeed(2f);
             yield return new WaitForSeconds(immortalTime);
 
             isImmortal = false;
             SetCurrentHP(actualHP); // Set HP back to actual value
             base.UpdateHpBar();
+            base.SetMoveSpeed(0f);
             yield return new WaitForSeconds(canGetDamageTime);
         }
     }

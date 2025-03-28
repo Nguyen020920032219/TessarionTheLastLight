@@ -58,6 +58,11 @@ public class Enemy : MonoBehaviour
         currentHP = hp;
     }
 
+    public void SetMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
     protected void MoveToPlayer()
     {
         if (isDead || player == null || isKnockedBack) return;
