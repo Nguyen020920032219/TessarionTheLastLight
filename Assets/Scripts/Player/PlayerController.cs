@@ -49,11 +49,11 @@ public class PlayerController : MonoBehaviour
             weaponManager.SwitchWeapon();
         }
 
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKey(KeyCode.F))
         {
             weaponManager.Attack();
         }
-        else if (Input.GetKeyUp(KeyCode.G))
+        else if (Input.GetKeyUp(KeyCode.F))
         {
             weaponManager.StopAttack();
         }
