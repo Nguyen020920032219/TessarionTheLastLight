@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7611301936631501227}
   - component: {fileID: 3250592984266030164}
-  - component: {fileID: 2843096324070280391}
   - component: {fileID: 6077421054796312573}
   - component: {fileID: 5271376401544645679}
+  - component: {fileID: 6797242491076325245}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -92,28 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2843096324070280391
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5180038009708529887}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6517c5e114718744a8b626b91fbadd25, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6077421054796312573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +168,28 @@ PolygonCollider2D:
       - {x: 0.6755205, y: 0.3335322}
       - {x: 0.39123866, y: 0.44851243}
   m_UseDelaunayMesh: 0
+--- !u!95 &6797242491076325245
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180038009708529887}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6208b4b247558964b9cb4f383607d788, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6294351252588546725
 GameObject:
   m_ObjectHideFlags: 0
