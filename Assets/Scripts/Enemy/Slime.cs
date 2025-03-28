@@ -42,7 +42,6 @@ public class Slime : Enemy
             {
                 astralStone.SetActive(true);
             }
-            Destroy(gameObject, 1.5f);
         }
         float distanceToPlayer = Vector3.Distance(_collider.transform.position, player.transform.position);
 
