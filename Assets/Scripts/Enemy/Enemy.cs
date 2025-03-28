@@ -5,7 +5,7 @@ using System.IO;
 using UnityEditor.Timeline;
 using UnityEditor.Rendering;
 
-public class Enemy : MonoBehaviour
+public class   : MonoBehaviour
 {
     private float health;
     private float damge;
@@ -46,6 +46,11 @@ public class Enemy : MonoBehaviour
     public float GetDamage()
     {
         return damge;
+    }
+
+    public float GetCurrentHP()
+    {
+        return currentHP;
     }
 
     protected void MoveToPlayer()

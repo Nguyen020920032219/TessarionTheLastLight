@@ -13,7 +13,8 @@ public class Wizard : Enemy
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform[] spawnPoints2;
     [SerializeField] private float speedSkill = 5f;
-    //[SerializeField] private GameObject foreground;
+    [SerializeField] private GameObject chest;
+    [SerializeField] private GameObject stone;
 
     private Animator animator;
     private Transform playerTransform;
@@ -23,20 +24,23 @@ public class Wizard : Enemy
         InitStat(hp, damage, speed, objScale, hpBar);
         UpdateHpBar();
         animator = GetComponent<Animator>();
+        chest.SetActive(false);
+        stone.SetActive(false);
 
+        Debug.Log("Chest active after Start(): " + chest.activeSelf);
+        Debug.Log("Stone active after Start(): " + stone.activeSelf);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
             playerTransform = player.transform;
         }
-        //foreground.gameObject.SetActive(false);
         StartCoroutine(RandomSkill());
     }
 
-    //private void Update()
-    //{
-    //    Died();
-    //}
+    private void Update()
+    {
+        Died();
+    }
 
     private IEnumerator RandomSkill()
     {
@@ -106,12 +110,13 @@ public class Wizard : Enemy
             TakeDamage(100);
         }
     }
-    //private void Died()
-    //{
-    //    if (!IsDied()) return;
-    //    if (foreground != null)
-    //    {
-    //        foreground.gameObject.SetActive(true);
-    //    }
-    //}
+    private void Died()
+    {
+        if (IsDied())
+        {
+            chest.SetActive(true);
+            stone.SetActive(true);
+        }
+        
+    }
 }

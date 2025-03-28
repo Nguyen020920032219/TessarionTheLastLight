@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ed07e1868f428a48aad2f396bacad39
+guid: d1e2d68d9515b0849a4565047cc13986
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -115,7 +115,33 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -134,12 +160,12 @@ TextureImporter:
       name: props_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 111
-        width: 75
-        height: 70
+        x: 56
+        y: 175
+        width: 38
+        height: 37
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +182,12 @@ TextureImporter:
       name: props_1
       rect:
         serializedVersion: 2
-        x: 121
-        y: 128
-        width: 37
-        height: 46
+        x: 118
+        y: 13
+        width: 212
+        height: 225
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +204,12 @@ TextureImporter:
       name: props_2
       rect:
         serializedVersion: 2
-        x: 171
-        y: 128
-        width: 26
-        height: 32
+        x: 351
+        y: 31
+        width: 183
+        height: 159
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,12 +226,12 @@ TextureImporter:
       name: props_3
       rect:
         serializedVersion: 2
-        x: 222
-        y: 34
-        width: 37
-        height: 110
+        x: 7
+        y: 111
+        width: 50
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -222,12 +248,12 @@ TextureImporter:
       name: props_4
       rect:
         serializedVersion: 2
-        x: 15
-        y: 47
-        width: 41
-        height: 37
+        x: 62
+        y: 106
+        width: 39
+        height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -244,12 +270,12 @@ TextureImporter:
       name: props_5
       rect:
         serializedVersion: 2
-        x: 108
-        y: 34
-        width: 95
-        height: 77
+        x: 30
+        y: 31
+        width: 24
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,12 +292,12 @@ TextureImporter:
       name: props_6
       rect:
         serializedVersion: 2
-        x: 268
+        x: 75
         y: 31
-        width: 67
-        height: 67
+        width: 24
+        height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,7 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ff39dc08d4ddbee47baba2249e6de73d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
