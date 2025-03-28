@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class ReaperMan3 : Enemy
     [SerializeField] private float speed = 1f;
     [SerializeField] private float objScale = 0.03f;
     [SerializeField] private float canCallReaperMan1Range;
+    [SerializeField] private float canUseUltilmateRange;
+    [SerializeField] private float limitHpRemainToCanCallReaperMan1;
     [SerializeField] private ReaperMan1 reaperMan1Prefab;
 
     private GameObject player;
@@ -28,9 +31,14 @@ public class ReaperMan3 : Enemy
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distanceToPlayer <= canCallReaperMan1Range && canCallReaperMan1)
+        if (distanceToPlayer <= canCallReaperMan1Range && canCallReaperMan1 && GetCurrentHP() > limitHpRemainToCanCallReaperMan1)
         {
             CallReaperMan1();
+        }
+
+        if (distanceToPlayer <= canUseUltilmateRange)
+        {
+            StartCoroutine(UseUltilmate());
         }
     }
 
@@ -64,4 +72,19 @@ public class ReaperMan3 : Enemy
         canCallReaperMan1 = true;
         yield return new WaitForSeconds(10f);
     }
+
+    private IEnumerator UseUltilmate()
+    {
+        while (GetCurrentHP() > 0)
+        {
+            Vector3 spawnPosition = player.transform.position + new Vector3(5f, 0f, 0);
+            ReaperMan1 newReaperFrontPlayer = Instantiate(reaperMan1Prefab, spawnPosition, Quaternion.identity);
+
+            Vector3 spawnPosition1 = player.transform.position + new Vector3(-5f, 0f, 0);
+            ReaperMan1 newReaperBehindPlayer = Instantiate(reaperMan1Prefab, spawnPosition1, Quaternion.identity);
+
+            base.TakeDamage(20);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }    
 }

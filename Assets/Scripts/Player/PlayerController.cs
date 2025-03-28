@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (IsPlayerFall())
+        {
+            Die();
+        }
+
         HandleMovement();
         HandleJump();
         UpdateAnimation();
@@ -105,5 +110,10 @@ public class PlayerController : MonoBehaviour
         playerManager.ResetPlayerStats();
         Time.timeScale = 1;
         SceneManager.LoadScene("Setup");
+    }
+
+    public bool IsPlayerFall()
+    {
+        return transform.position.y < -30;
     }
 }

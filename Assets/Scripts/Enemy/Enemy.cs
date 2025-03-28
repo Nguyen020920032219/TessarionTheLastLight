@@ -47,6 +47,11 @@ public class Enemy : MonoBehaviour
         return damge;
     }
 
+    public float GetCurrentHP()
+    {
+        return currentHP;
+    }
+
     protected void MoveToPlayer()
     {
         if (isDead || player == null || isKnockedBack) return;
