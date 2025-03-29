@@ -5,11 +5,18 @@ public class GameManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(PlayerPrefs.GetInt("SaveScene"));
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void NewGame()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(1);
     }
 }

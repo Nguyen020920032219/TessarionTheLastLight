@@ -30,6 +30,11 @@ public abstract class Weapon : MonoBehaviour
         currentSpeed = baseSpeed;
     }
 
+    public string[] GetStones()
+    {
+        return stones;
+    }
+
     public float GetDamage()
     {
         return (currentDamage + (currentDamage * (playerManager.GetStrenght() / 100)));

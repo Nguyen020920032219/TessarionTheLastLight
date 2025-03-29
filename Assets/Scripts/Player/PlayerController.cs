@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private GameObject gameOverUi;
+    [SerializeField] private GameObject gamePauseUi;
 
     private Animator animator;
     private bool isGrounded;
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         gameOverUi.SetActive(false);
+        gamePauseUi.SetActive(false);
+        weaponManager.LoadStones();
     }
 
     void Update()
@@ -62,6 +66,31 @@ public class PlayerController : MonoBehaviour
         {
             weaponManager.UsingSkill();
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+    }
+
+    private void PauseGame()
+    {
+
+        Time.timeScale = 0;
+        gamePauseUi.SetActive(true);
+    }
+
+    public void GameContinue()
+    {
+        Time.timeScale = 1;
+        gamePauseUi.SetActive(false);
+    }
+
+    public void SaveAndQuit()
+    {
+        PlayerPrefs.SetInt("SaveScene", SceneManager.GetActiveScene().buildIndex);
+        weaponManager.SaveStones();
+        SceneManager.LoadScene(0);
     }
 
     private void HandleMovement()
@@ -94,6 +123,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         isGameOver = true;
+        PlayerPrefs.SetInt("DieScene", SceneManager.GetActiveScene().buildIndex);
         animator.SetBool("isDying", true);
         Invoke(nameof(GameOver), 1.5f);
     }
@@ -109,7 +139,7 @@ public class PlayerController : MonoBehaviour
         isGameOver = false;
         playerManager.ResetPlayerStats();
         Time.timeScale = 1;
-        SceneManager.LoadScene("Setup");
+        SceneManager.LoadScene(PlayerPrefs.GetInt("DieScene"));
     }
 
     public bool IsPlayerFall()
