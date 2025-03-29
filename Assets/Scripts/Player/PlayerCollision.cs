@@ -57,5 +57,13 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Level_3");
         }
+        if (collision.CompareTag("Stone3"))
+        {
+            SceneManager.LoadScene("Level_4");
+        }
+        if (collision.CompareTag("Stone4"))
+        {
+            SceneManager.LoadScene("Level_5_1");
+        }
     }
 }

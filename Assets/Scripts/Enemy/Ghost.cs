@@ -14,7 +14,10 @@ public class Ghost : Enemy
     private Vector3 startPos;
     [SerializeField] private float immortalTime = 5f;
     [SerializeField] private float canGetDamageTime = 5f;
-
+    [SerializeField] private GameObject[] stones;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private bool isBoss = false;
+    private bool isRandom = false;
     private GameObject player;
     private Animator _animator;
     private bool isImmortal = false;
@@ -34,7 +37,11 @@ public class Ghost : Enemy
 
     void Update()
     {
-
+        if (!isRandom && IsDied())
+        {
+            Died();
+            isRandom = true;
+        }
         if (Vector3.Distance(transform.position, player.transform.position) <= distanceToStartChasingPlayer)
         {
             isChasingPlayer = true;
@@ -87,6 +94,16 @@ public class Ghost : Enemy
             base.UpdateHpBar();
             base.SetMoveSpeed(0f);
             yield return new WaitForSeconds(canGetDamageTime);
+        }
+    }
+    private void Died()
+    {
+        if (isBoss)
+        {
+            var index = Random.Range(0, stones.Length - 1);
+            GameObject selectedStone = stones[index];
+            selectedStone.transform.position = spawnPoint.position;
+            selectedStone.SetActive(true);
         }
     }
 }
