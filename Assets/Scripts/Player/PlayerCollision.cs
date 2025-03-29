@@ -46,12 +46,16 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("GateWay"))
         {
-            SceneManager.LoadScene("Scence_5_2");
+            SceneManager.LoadScene("Level_5_2");
         }
         if (collision.CompareTag("GenesisStone"))
         {
             Time.timeScale = 0;
             menuWin.SetActive(true);
+        }
+        if (collision.CompareTag("Stone"))
+        {
+            SceneManager.LoadScene("Level_3");
         }
     }
 }
