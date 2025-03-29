@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6077421054796312573}
   - component: {fileID: 5271376401544645679}
   - component: {fileID: 6797242491076325245}
+  - component: {fileID: -7516657037625663271}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -190,6 +191,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-7516657037625663271
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180038009708529887}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &6294351252588546725
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +294,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7611301936631501227}
     m_Modifications:
+    - target: {fileID: 1346965826791906201, guid: e8e1608563a5e044cabfeddfc8394405, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1508211243
+      objectReference: {fileID: 0}
     - target: {fileID: 1394828679914521508, guid: e8e1608563a5e044cabfeddfc8394405, type: 3}
       propertyPath: m_Name
       value: HealthBar
