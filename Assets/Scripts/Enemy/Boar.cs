@@ -11,11 +11,13 @@ public class Boar : Enemy
     [SerializeField] private float scale = 1f;
     [SerializeField] private Image healthBar;
     [SerializeField] private float distances=3;
+    [SerializeField] private Collider2D attackCollider;
 
     private Vector3 startPos;
 
     private void Start()
     {
+        attackCollider.enabled = false;
         startPos = transform.position;
         InitStat(hp, damage, moveSpeed, scale, healthBar);
         UpdateHpBar();
@@ -23,8 +25,7 @@ public class Boar : Enemy
 
     private void Update()
     {
-        //MoveFromPosToPos(startPos, distances);
-        MoveToPlayer();
+        MoveFromPosToPos(startPos, distances);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

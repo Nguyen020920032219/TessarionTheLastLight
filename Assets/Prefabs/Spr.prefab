@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2569721825260275411}
   - component: {fileID: 7535163578998201083}
   - component: {fileID: 1039097750677368594}
-  - component: {fileID: -7776765328158500206}
   - component: {fileID: -8270672442914587795}
+  - component: {fileID: 3923886404746585261}
+  - component: {fileID: 213304823251262872}
   m_Layer: 0
   m_Name: Spr
   m_TagString: Enemy
@@ -110,28 +111,7 @@ MonoBehaviour:
   scale: 1
   healthBar: {fileID: 9177245570226715084}
   distances: 0
---- !u!95 &-7776765328158500206
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274617072444429837}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 58072b172cce7f44f8e3e3f61b10760f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  attackCollider: {fileID: 0}
 --- !u!50 &-8270672442914587795
 Rigidbody2D:
   serializedVersion: 5
@@ -159,6 +139,102 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!60 &3923886404746585261
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274617072444429837}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6875, y: 1.0625}
+    newSize: {x: 1.6875, y: 1.0625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.4728238, y: 0.2852911}
+      - {x: 0.34347948, y: 0.30134457}
+      - {x: 0.31530657, y: 0.4267496}
+      - {x: 0.27112973, y: 0.3959357}
+      - {x: 0.14600466, y: 0.20608637}
+      - {x: -0.029900327, y: 0.23954126}
+      - {x: -0.014752448, y: 0.47640985}
+      - {x: -0.09893074, y: 0.48576415}
+      - {x: -0.102623545, y: 0.29701373}
+      - {x: -0.32073942, y: 0.30595428}
+      - {x: -0.3867976, y: 0.47711244}
+      - {x: -0.4731253, y: 0.4814595}
+      - {x: -0.4725121, y: 0.24008171}
+      - {x: -0.6327883, y: 0.2235975}
+      - {x: -0.7796388, y: 0.21364214}
+      - {x: -0.78669333, y: -0.330293}
+      - {x: -0.70864886, y: -0.3449778}
+      - {x: -0.725084, y: -0.46532443}
+      - {x: 0.23261312, y: -0.46625173}
+      - {x: 0.36178234, y: -0.2939179}
+      - {x: 0.5795715, y: -0.2764376}
+      - {x: 0.78661424, y: -0.18210316}
+      - {x: 0.7776705, y: -0.08820565}
+      - {x: 0.6206213, y: -0.08136178}
+      - {x: 0.597628, y: 0.21383792}
+      - {x: 0.5384238, y: 0.39004216}
+      - {x: 0.4779931, y: 0.42576912}
+  m_UseDelaunayMesh: 0
+--- !u!95 &213304823251262872
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274617072444429837}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 271721812908f60449248728f121a2a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8827795607144292620
 GameObject:
   m_ObjectHideFlags: 0
