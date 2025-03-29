@@ -21,6 +21,11 @@ TagManager:
   - BossSkill
   - ReaperAttack
   - SlimeAttack
+  - BoarAttack
+  - Stone
+  - OracleStone
+  - Stone4
+  - Stone3
   layers:
   - Default
   - TransparentFX

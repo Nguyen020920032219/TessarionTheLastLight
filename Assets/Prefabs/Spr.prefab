@@ -112,6 +112,10 @@ MonoBehaviour:
   healthBar: {fileID: 9177245570226715084}
   distances: 0
   attackCollider: {fileID: 0}
+  stone: {fileID: 0}
+  isBoss: 0
+  attackRange: 5
+  attackSpeed: 10
 --- !u!50 &-8270672442914587795
 Rigidbody2D:
   serializedVersion: 5
@@ -247,7 +251,7 @@ GameObject:
   - component: {fileID: 1566343129102266380}
   m_Layer: 0
   m_Name: AttackPoint
-  m_TagString: Untagged
+  m_TagString: BoarAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

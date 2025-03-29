@@ -14,7 +14,9 @@ public class ReaperMan3 : Enemy
     [SerializeField] private float canUseUltilmateRange;
     [SerializeField] private float limitHpRemainToCanCallReaperMan1;
     [SerializeField] private ReaperMan1 reaperMan1Prefab;
-
+    [SerializeField] private GameObject[] stones;
+    [SerializeField] private Transform spawnPoint;
+    private bool isRandom = false;
     private GameObject player;
     private Animator _animator;
     private bool canCallReaperMan1 = true;
@@ -25,6 +27,10 @@ public class ReaperMan3 : Enemy
         UpdateHpBar();
         player = GameObject.FindGameObjectWithTag("Player");
         _animator = GetComponent<Animator>();
+
+
+        var index = Random.Range(0, stones.Length);
+        GameObject selectedStone = Instantiate(stones[index], spawnPoint.position, Quaternion.identity);
     }
 
     void Update()
@@ -86,5 +92,7 @@ public class ReaperMan3 : Enemy
             base.TakeDamage(20);
             yield return new WaitForSeconds(0.5f);
         }
-    }    
+
+    }
+
 }
