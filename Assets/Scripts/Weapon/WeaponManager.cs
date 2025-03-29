@@ -42,7 +42,7 @@ public class WeaponManager : MonoBehaviour
 
     internal void UsingSkill()
     {
-        if (currentWeapon.isHavingSkill)
+        if (currentWeapon.IsHavingSkill())
         {
             currentWeapon.UsingSkill();
         }

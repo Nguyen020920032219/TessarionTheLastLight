@@ -19,6 +19,13 @@ TagManager:
   - EnemyAttack
   - GateWay
   - BossSkill
+  - ReaperAttack
+  - SlimeAttack
+  - BoarAttack
+  - Stone
+  - OracleStone
+  - Stone4
+  - Stone3
   layers:
   - Default
   - TransparentFX
@@ -64,6 +71,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3595709115
+    locked: 0
+  - name: GroundTitle
+    uniqueID: 591507945
     locked: 0
   - name: Enemy
     uniqueID: 2786756053

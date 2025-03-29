@@ -9,12 +9,14 @@ public abstract class Weapon : MonoBehaviour
     private string[] stones = new string[4];
     private int stoneCount = 0;
     private float nextAttackTime = 0f;
-    public float currentDamage;
+    private float currentDamage;
     private float currentSpeed;
     private GameObject player;
     private PlayerManager playerManager;
     protected Animator animator;
-    public bool isHavingSkill = false;
+    private bool isHavingSkill = false;
+    private float arrowSpeed = 5f;
+
 
     protected virtual void Awake()
     {
@@ -33,6 +35,16 @@ public abstract class Weapon : MonoBehaviour
         return (currentDamage + (currentDamage * (playerManager.GetStrenght() / 100)));
     }
 
+    public float GetArrowSpeed()
+    {
+        return arrowSpeed + (arrowSpeed * (playerManager.GetStrenght() / 100));
+    }
+
+    public bool IsHavingSkill()
+    {
+        return isHavingSkill;
+    }
+
     protected bool CanAttack()
     {
         return Time.time >= nextAttackTime;
@@ -41,6 +53,11 @@ public abstract class Weapon : MonoBehaviour
     protected void ResetAttackCooldown()
     {
         nextAttackTime = Time.time + (1f / baseSpeed);
+    }
+
+    protected float GetCoolDownTime()
+    {
+        return nextAttackTime;
     }
 
     public void AddStone(string stoneName)

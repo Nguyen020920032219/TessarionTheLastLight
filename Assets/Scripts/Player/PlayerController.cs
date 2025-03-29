@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (IsPlayerFall())
+        {
+            Die();
+        }
+
         HandleMovement();
         HandleJump();
         UpdateAnimation();
@@ -44,11 +49,11 @@ public class PlayerController : MonoBehaviour
             weaponManager.SwitchWeapon();
         }
 
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKey(KeyCode.F))
         {
             weaponManager.Attack();
         }
-        else if (Input.GetKeyUp(KeyCode.G))
+        else if (Input.GetKeyUp(KeyCode.F))
         {
             weaponManager.StopAttack();
         }
@@ -105,5 +110,10 @@ public class PlayerController : MonoBehaviour
         playerManager.ResetPlayerStats();
         Time.timeScale = 1;
         SceneManager.LoadScene("Setup");
+    }
+
+    public bool IsPlayerFall()
+    {
+        return transform.position.y < -30;
     }
 }
